@@ -1,19 +1,14 @@
 import './App.css';
+import BasicExample from './MainPage';
 
-import { useApi } from './hooks/use-api';
+// import { useApi } from './hooks/use-api';
 
 function App() {
-  const { response } = useApi();
+  // const { response } = useApi();
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          {response}
-        </p>
-      </header>
-    </div>
-  );
-}
+    <BasicExample />
+  )
+};
 
 export default App;

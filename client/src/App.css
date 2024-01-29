@@ -1,4 +1,31 @@
-.App {
+ @import 'bootstrap/dist/css/bootstrap.min.css';  /*imported reactstrap -Miguel*/
+
+/* added some styling to the table and the table datas - Miguel*/
+.table{
+  text-align: center;
+}
+
+.table td {
+  padding: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Dont need this down here just adding this for future reference normally when you start a react app you want to delete all this - Miguel */
+
+/* .App {
   text-align: center;
 }
 
@@ -18,4 +45,4 @@
 
 .App-link {
   color: #61dafb;
-}
+} */
