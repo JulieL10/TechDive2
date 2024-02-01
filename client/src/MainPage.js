@@ -1,42 +1,50 @@
-import React, { useEffect , useState} from 'react';
-import Table from 'react-bootstrap/Table'; // added react strap library for table -Miguel
+import { useEffect, useState } from 'react';
+import Table from 'react-bootstrap/Table';
 import './App.css';
-import axios from 'axios'
 
-//This component is just a simple react-strap table that i just grabbed from the documentation -Miguel
-export const BasicExample = () => {
+const BasicExample = () => {
+  const [exams, setExams] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const api = axios.create({
-    baseURL: 'https://czi-covid-lypkrzry4q-uc.a.run.app/api/patient/COVID-19-AR-16406504'
-  })
+  useEffect(() => {
+    //Fetaching Data with api
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams');
+        if (!response.ok) {
+          throw new Error('Request failed');
+        }
+        //checks if data is in the correct format before setting the state. -Miguel
+        const data = await response.json();
+        if (data && data.exams) {
+          setExams(data.exams);
+        } else {
+          throw new Error('Data format is incorrect');
+        }
+      } catch (error) {
+        console.error('Error loading data:', error);
+        setError('Error loading data');
+      } finally {
+        //when api is fully loaded the loading div will disapear and the state will be false. -Miguel
+        setLoading(false);
+      }
+    };
 
-  const [data , setData] = useState([])
+    fetchData();
+  }, []);
+  //checks if loading is true or not
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-
-  useEffect(() =>  {
-    api.get('/').then( res => {
-      console.log(res.data);
-    })
-    .then( data => {
-      setData(data);
-    })
-  }, [])
-  
-  
-  // const { response } = useApi({path: 'czi-covid-lypkrzry4q-uc.a.run.app/api/exams'})
-
-  // if(!response){
-  //   return <div>Loading...</div>
-  // }
-
-  // if(!response.success){
-  //   <div>Error loading data</div>
-  // }
-
-  // const { exams } = response; 
-
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
+    //mapping through the exam objects and picking out the values we want and creating table date for each one. -Miguel
+    //using a conditional statement within the map because some 'exams' are null and will create a bug. =Miguel
     <Table className='table' bordered hover responsive size="sm">
       <thead>
         <tr>
@@ -52,64 +60,30 @@ export const BasicExample = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>COVID-19-AR-16406513</td>
-          <td>Exam-1</td>
-          <td>
-            <img
-              src="https://ohif-hack-diversity-covid.s3.amazonaws.com/covid-png/COVID-19-AR-16406504_XR_CHEST_AP_PORTABLE_2.png"
-              alt="Profile"
-              style={{ width: '50px', height: '50px' }}
-            />
-          </td>
-          <td>The lungs are free of air space disease</td>
-          <td>1,2,3,4</td>
-          <td>44</td>
-          <td>M</td>
-          <td>33.3</td>
-          <td>722</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-        <tr>
-          <td>{data}</td>
-        </tr>
+        {exams.map((exam) => (
+          exam ? (
+            <tr key={exam.examId}>
+              <td>{exam.patientId}</td>
+              <td>{exam.examId}</td>
+              <td>
+                <img
+                  src={`${exam.imageURL}`}
+                  alt={`Exam ${exam.examId}`}
+                  style={{ width: '50px', height: '50px' }}
+                />
+              </td>
+              <td>{exam.keyFindings}</td>
+              <td>{exam.brixiaScores}</td>
+              <td>{exam.age}</td>
+              <td>{exam.sex}</td>
+              <td>{exam.bmi}</td>
+              <td>{exam.zipCode}</td>
+            </tr>
+          ) : null
+        ))}
       </tbody>
     </Table>
-
-
-    // <Table className='table' bordered hover responsive size="sm">
-    //   <thead>
-    //     <tr>
-    //       <th>Patient ID</th>
-    //       <th>Exam ID</th>
-    //       <th>Image</th>
-    //       <th>Key Findings</th>
-    //       <th>Brixia Score</th>
-    //       <th>Age</th>
-    //       <th>Sex</th>
-    //       <th>BMI</th>
-    //       <th>Zip Code</th>
-    //     </tr>
-    //   </thead>
-    //   <tbody>
-    //     {exams.map((exam) => (
-    //       <tr key={exam._id}>
-    //         <td>{exam.patientID}</td>
-    //       </tr>
-    //     ))}
-    //   </tbody>
-    // </Table>
   );
-}
+};
 
 export default BasicExample;
