@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import './App.css';
+import Nav from '../components/NavBar';
 
 const BasicExample = () => {
   const [exams, setExams] = useState([]);
@@ -44,7 +45,9 @@ const BasicExample = () => {
 
   return (
     //mapping through the exam objects and picking out the values we want and creating table date for each one. -Miguel
-    //using a conditional statement within the map because some 'exams' are null and will create a bug. =Miguel
+    
+    <>
+    <Nav/>
     <Table className='table' bordered hover responsive size="sm">
       <thead>
         <tr>
@@ -83,6 +86,7 @@ const BasicExample = () => {
         ))}
       </tbody>
     </Table>
+    </>
   );
 };
 
