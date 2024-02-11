@@ -7,22 +7,32 @@ const BasicExample = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
   useEffect(() => {
     //Fetaching Data with api
     const fetchData = async () => {
       try {
-        const response = await fetch('https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams');
+        const response = await fetch('/api/exams');
         if (!response.ok) {
           throw new Error('Request failed');
         }
+
+
         //checks if data is in the correct format before setting the state. -Miguel
         const data = await response.json();
-        if (data && data.exams) {
-          setExams(data.exams);
-        } else {
-          throw new Error('Data format is incorrect');
-        }
-      } catch (error) {
+        
+        console.log("Recieved the data: ", data)
+        let i = 0;
+        console.log(data.length)
+        setExams(data);
+        console.log("In the While Loop");
+          if (data && data[i]) {
+            setExams(data);
+            console.log("The Exams were set. Set Exams: ", data)
+          } else {
+              throw new Error('Data format is incorrect');
+          }
+     } catch (error) {
         console.error('Error loading data:', error);
         setError('Error loading data');
       } finally {
@@ -33,6 +43,7 @@ const BasicExample = () => {
 
     fetchData();
   }, []);
+
   //checks if loading is true or not
   if (loading) {
     return <div>Loading...</div>;
@@ -62,18 +73,18 @@ const BasicExample = () => {
       <tbody>
         {exams.map((exam) => (
           exam ? (
-            <tr key={exam.examId}>
-              <td>{exam.patientId}</td>
-              <td>{exam.examId}</td>
-              <td>
+            <tr key={exam.examID}>
+              <td>{exam.patientID}</td>
+              <td>{exam.examID}</td>
+              {/* <td>
                 <img
-                  src={`${exam.imageURL}`}
-                  alt={`Exam ${exam.examId}`}
+                  src={`${exam.image}`}
+                  alt={`${exam.examID}`}
                   style={{ width: '50px', height: '50px' }}
                 />
-              </td>
+              </td> */}
               <td>{exam.keyFindings}</td>
-              <td>{exam.brixiaScores}</td>
+              <td>{exam.brixiaScore}</td>
               <td>{exam.age}</td>
               <td>{exam.sex}</td>
               <td>{exam.bmi}</td>
