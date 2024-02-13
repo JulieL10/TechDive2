@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
-import './App.css';
+import '../App.css';
 import Nav from '../components/NavBar';
 
 const BasicExample = () => {

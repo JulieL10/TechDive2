@@ -1,5 +1,5 @@
 import './App.css';
-import BasicExample from './MainPage';
+import BasicExample from '../src/Pages/ExamPage';
 
 function App() {
 
