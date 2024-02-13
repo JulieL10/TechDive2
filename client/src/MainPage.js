@@ -76,13 +76,13 @@ const BasicExample = () => {
             <tr key={exam.examID}>
               <td>{exam.patientID}</td>
               <td>{exam.examID}</td>
-              {/* <td>
+              <td>
                 <img
                   src={`${exam.image}`}
                   alt={`${exam.examID}`}
                   style={{ width: '50px', height: '50px' }}
                 />
-              </td> */}
+              </td>
               <td>{exam.keyFindings}</td>
               <td>{exam.brixiaScore}</td>
               <td>{exam.age}</td>
