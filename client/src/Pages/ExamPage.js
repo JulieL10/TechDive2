@@ -55,7 +55,6 @@ const ExamPage = () => {
   // Rendering table with exam data
   return (
     <>
-      <div>hello</div>
       <Table className='table' bordered hover responsive size="sm">
         <thead>
           <tr>
