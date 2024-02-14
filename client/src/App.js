@@ -1,11 +1,11 @@
 import './App.css';
-import BasicExample from '../src/Pages/ExamPage';
+import ExamPage from '../src/Pages/ExamPage';
 
 function App() {
 
   return (
     <>
-    <BasicExample />
+    <ExamPage />
     </>
   )
 };
