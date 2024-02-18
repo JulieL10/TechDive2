@@ -1,13 +1,13 @@
 import './App.css';
 import ExamPage from '../src/Pages/ExamPage';
-import Create from './Pages/CreatePage';
+// import Create from './Pages/CreatePage';
 
 function App() {
 
   return (
     <>
-    {/* <ExamPage /> */}
-    <Create />
+    <ExamPage />
+    {/* <Create /> */}
     </>
   )
 };
