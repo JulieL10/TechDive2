@@ -5,7 +5,6 @@ const mongoose = require('mongoose')
 const examRoutes = require('./routes/exams')
 const cors = require('cors');
 
-
 // express app
 const app = express()
 app.use(cors());
