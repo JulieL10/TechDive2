@@ -6,10 +6,8 @@ const ExamPage = () => {
 
   return (
     <>
-    
     <Nav/>
     <ExamTable />
-    
     </>
       
   );

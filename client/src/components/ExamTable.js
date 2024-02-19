@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import { fetchExams } from '../examApi';
 import '../App.css';
 
