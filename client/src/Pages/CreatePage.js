@@ -10,9 +10,45 @@ const Create = () => {
     const [sex, setSex] = useState('');
     const [bmi, setBmi] = useState('');
     const [zipCode, setZipCode] = useState('');
+    const [error, setError] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        const exam = {patientID, examID, image, keyFindings, brixiaScore, age, sex, bmi, zipCode}
+
+        const response = await fetch('http://localhost:4000/api/exams/', {
+            method:'POST',
+            body: JSON.stringify(exam),
+            headers: {
+                'Content-Type':'application/json'
+            }
+        })
+
+        const json = await response.json()
+
+        if(!response.ok) {
+            setError(json.error)
+            console.log('hi')
+        }
+        if(response.ok) {
+            setPatientID('')
+            setExamID('')
+            setKeyFindings('')
+            setBrixiaScore('')
+            setImage('')
+            setAge('')
+            setSex('')
+            setBmi('')
+            setZipCode('')
+            setError(null)
+            console.log('new exam added', json)
+        }
+        
+    }
 
     return (
-        <form className="create">
+        <form className="create" onSubmit={handleSubmit}>
             <h3>Patient Entry</h3>
 
             <label>Patient Id</label>
@@ -70,7 +106,8 @@ const Create = () => {
                 onChange={(e) => setZipCode(e.target.value)}
                 value={zipCode}
             />
-
+            <button>Add Workout</button>
+            {error && <div className="error">{error}</div>}
 
         </form>
     )
