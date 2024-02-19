@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Table from 'react-bootstrap/Table';
+
 import { fetchExams } from '../examApi';
 import '../App.css';
 
@@ -29,7 +29,7 @@ const ExamPage = () => {
 
   return (
     <>
-      <Table className='table' bordered hover responsive size="sm">
+      <table className='pop-out-table'>
         <thead>
           <tr>
             <th>Patient ID</th>
@@ -56,7 +56,7 @@ const ExamPage = () => {
                     style={{ width: '50px', height: '50px' }}
                   />
                 </td>
-                <td>{exam.keyFindings}</td>
+                <td className='key'>{exam.keyFindings}</td>
                 <td>{exam.brixiaScore}</td>
                 <td>{exam.age}</td>
                 <td>{exam.sex}</td>
@@ -66,7 +66,7 @@ const ExamPage = () => {
             )
           ))}
         </tbody>
-      </Table>
+      </table>
     </>
   );
 };
