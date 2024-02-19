@@ -1,4 +1,4 @@
- @import 'bootstrap/dist/css/bootstrap.min.css';  /*imported reactstrap -Miguel*/
+@import 'bootstrap/dist/css/bootstrap.min.css';  /*imported reactstrap -Miguel*/
 
 /* added some styling to the table and the table datas - Miguel*/
 .table{
@@ -9,13 +9,86 @@
   padding: 12px;
 }
 
+/* julie's code for the nav bar */
+.navbar {
+  background-color: #2257FD;
+  padding: 25px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar ul li a:hover {
+  color: #ccc;
+}
+
+
+.logo span {
+  color: white; /* Change to white */
+  font-weight: bold;
+}
+
+.logo img {
+  width: 30px;
+  height: auto;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.logo-text {
+  font-size: 21px; /* Change the font size as needed */
+}
 
 
 
 
 
+/* Julie's code for table */
+.pop-out-table {
+  border-collapse: collapse;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
 
+.pop-out-table th,
+.pop-out-table td {
+  padding: 8px;
+  text-align: center;
+  
+}
+.key {
+  width: 850px;
+}
+tr{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.pop-out-table th {
+  background-color: #ffffff;
+}
 
+.pop-out-table tbody tr:hover {
+  background-color: #f7f7f7;
+  transition: background-color 0.3s ease;
+  
+}
+
+.pop-out-table tbody tr {
+  transition: box-shadow 0.3s ease;
+}
 
 
 

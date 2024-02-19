@@ -1,19 +1,20 @@
-import Navbar from 'react-bootstrap/Navbar';
+import medReportLogo from '../images/MedReportLogo.png';
+
+   
    const Nav = () => {
     return(
-        <div>
-            <Navbar bg="light" expand="lg">
-            <Navbar.Brand to="/">Your App Name</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
-                <Nav.Link to="/App.js">Home</Nav.Link>
-                <Nav.Link to="/about">About</Nav.Link>
-                <Nav.Link to="/contact">Contact</Nav.Link>
-                </Nav>
-            </Navbar.Collapse>
-            </Navbar>
-        </div>
+        <div className="navbar">
+
+        <div className="logo">
+                <img src= {medReportLogo}alt="Med Report Logo" className="logo" />
+                <span className="logo-text"> MedReport</span>
+            </div>
+        <ul>
+            <li><a href="/">Exams</a></li>
+            <li><a href="/">Admin</a></li>
+        </ul>
+        <input></input>
+    </div>
     )
    }
    
