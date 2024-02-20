@@ -60,37 +60,35 @@
 .pop-out-table {
   border-collapse: collapse;
   width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: white;
 }
-
+.keyFindings {
+  width: 1100px;
+}
 .pop-out-table th,
 .pop-out-table td {
   padding: 8px;
-  text-align: center;
-  
+  text-align: left;
 }
-.key {
-  width: 850px;
-}
-tr{
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+
 .pop-out-table th {
-  background-color: #ffffff;
+  background-color: #f2f2f2;
 }
 
 .pop-out-table tbody tr:hover {
-  background-color: #f7f7f7;
+  background-color: #f5f5f5;
   transition: background-color 0.3s ease;
-  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .pop-out-table tbody tr {
   transition: box-shadow 0.3s ease;
 }
 
-
+/* Darren's Code for search bar */
+.form-control {
+  width: 800px;
+  margin-top: 20px;
+}
 
 
 
