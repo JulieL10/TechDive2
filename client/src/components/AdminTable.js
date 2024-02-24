@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table';
 import {useExamsContext} from '../hooks/useExamsContext'
 import '../App.css';
 
-const ExamTable = ({ input }) => {
+const AdminTable = ({ input, setInput}) => {
   const {exams, dispatch} = useExamsContext()
   const [loading, setLoading] = useState(true);
   
@@ -16,7 +16,7 @@ const ExamTable = ({ input }) => {
         if (!response.ok) {
           throw new Error('Failed to fetch exams');
         }
-        const data = await response.json();
+        const data = await response.json(); // Convert response to JSON
         dispatch({ type: 'SET_EXAMS', payload: data });
       } catch (error) {
         console.error('Error loading data:', error);
@@ -27,19 +27,27 @@ const ExamTable = ({ input }) => {
   
     fetchData();
   }, [input, dispatch]);
+  const handleClick = async (examID) => {
+    const response = await fetch(`http://localhost:4000/api/exams/${examID}`, {
+      method: 'DELETE'
+    });
+    const json = await response.json();
+  
+    if (response.ok) {
+      dispatch({ type: 'DELETE_EXAM', payload: json });
+    }
+  };
   
   if (loading) {
     return <div>Loading...</div>;
   }
   const filterExams = exams.filter((exam) => 
     input === '' ? true : exam.patientID.toLowerCase().includes(input.toLowerCase()));
-  
-
 
     return (
       <>
         {filterExams.length > 0 ? (
-          <Table className='table' bordered hover responsive size="sm">
+          <Table className='adminTable' bordered hover responsive size="sm">
             <thead>
               <tr>
                 <th>Patient ID</th>
@@ -51,6 +59,8 @@ const ExamTable = ({ input }) => {
                 <th>Sex</th>
                 <th>BMI</th>
                 <th>Zip Code</th>
+                <th>Update</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -66,12 +76,14 @@ const ExamTable = ({ input }) => {
                         style={{ width: '50px', height: '50px' }}
                       />
                     </td>
-                    <td className='keyFindings'>{exam.keyFindings}</td>
+                    <td className='keyFindingsAdmin'>{exam.keyFindings}</td>
                     <td>{exam.brixiaScore}</td>
                     <td>{exam.age}</td>
                     <td>{exam.sex}</td>
                     <td>{exam.bmi}</td>
                     <td>{exam.zipCode}</td>
+                    <td><span>Update</span></td>
+                    <td><button onClick={() => handleClick(exam._id)}>Delete</button></td>
                   </tr>
                 )
               ))}
@@ -84,4 +96,4 @@ const ExamTable = ({ input }) => {
     );
   };
 
-export default ExamTable;
+export default AdminTable;

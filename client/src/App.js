@@ -1,19 +1,18 @@
-import './App.css';
-import ExamPage from '../src/Pages/ExamPage';
-// import Create from './Pages/CreatePage';
+// import { useState } from 'react';
+// import { createBrowserRouter, RouterProvider } from 'react-router';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import ExamPage from './Pages/ExamPage'; // Import your ExamPage component
 // import AdminPage from './Pages/Adminpage';
+// import Soim from './Pages/som'; // Import your AdminPage component
 
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <Soim/>,
+//   },
+// ]);
 
-function App() {
-
-  return (
-    <>
-    
-    <ExamPage />
-    {/* <Create /> */}
-    {/* <AdminPage /> */}
-    </>
-  )
-};
-
-export default App;
+// ReactDOM.createRoot(document.getElementById("root")).render(
+//   <RouterProvider router={router} />
+// );
