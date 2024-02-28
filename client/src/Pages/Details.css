@@ -1,0 +1,54 @@
+.exam-details-container {
+  margin: 50px auto;
+  max-width: 1000px;
+  height: 400px; /* Adjust as needed */
+  padding: 50px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* Ensure relative positioning for absolute positioned elements */
+}
+
+.exam-details {
+  display: flex;
+  align-items: center;
+}
+
+.image-container {
+  margin-right: 20px;
+}
+
+.image-container img {
+  max-width: 200px;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.details-container {
+  flex: 1;
+}
+
+.exam-details p {
+  margin: 8px 0;
+}
+
+.exam-details strong {
+  font-weight: bold;
+}
+
+.back-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}

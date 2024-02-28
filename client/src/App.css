@@ -9,6 +9,10 @@
   padding: 12px;
 }
 
+.keyFindingsAdmin{
+  width: 700px;
+}
+
 /* julie's code for the nav bar */
 .navbar {
   background-color: #2257FD;
@@ -90,30 +94,14 @@
   margin-top: 20px;
 }
 
-
-
-
-
-/* Dont need this down here just adding this for future reference normally when you start a react app you want to delete all this - Miguel */
-
-/* .App {
-  text-align: center;
+.loading,
+.no-matching-exams {
+  font-size: 1.2rem; /* Adjust font size as needed */
+  margin: 20px 0;
+  text-align: center;/* Add some margin for spacing */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.deleteButton {
+  cursor: pointer;
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-}
-
-.App-link {
-  color: #61dafb;
-} */
