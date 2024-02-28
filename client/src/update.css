@@ -1,0 +1,41 @@
+.update-exam {
+    width: 90%;
+    max-width: 900px;
+    margin: 15px auto;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .update-exam h3 {
+    margin-bottom: 20px;
+  }
+  
+  .update-exam label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .update-exam input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .update-exam button {
+    width: 100%;
+    padding: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .update-exam button:hover {
+    background-color: #0056b3;
+  }
+  

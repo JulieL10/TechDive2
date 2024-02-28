@@ -16,6 +16,7 @@ const Create = () => {
   const [bmi, setBmi] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [error, setError] = useState("");
+  const [emptyFields, setEmptyFields] = useState([])
   const navigate = useNavigate();
   const handleClick = () => navigate("/admin");
 
@@ -46,6 +47,7 @@ const Create = () => {
 
     if (!response.ok) {
       setError(json.error);
+      setEmptyFields(json.emptyFields)
     }
     if (response.ok) {
       setPatientID("");
@@ -59,6 +61,7 @@ const Create = () => {
       setZipCode("");
       setError(null);
       console.log("new exam added", json);
+      setEmptyFields([])
       dispatch({ type: "CREATE_EXAM", payload: json });
       handleClick();
     }
@@ -77,6 +80,7 @@ const Create = () => {
             type="text"
             onChange={(e) => setPatientID(e.target.value)}
             value={patientID}
+            className={emptyFields.includes('patientID') ? 'error' : ''}
           />
         </div>
 
@@ -86,6 +90,7 @@ const Create = () => {
             type="text"
             onChange={(e) => setExamID(e.target.value)}
             value={examID}
+            className={emptyFields.includes('examID') ? 'error' : ''}
           />
         </div>
 
@@ -95,6 +100,8 @@ const Create = () => {
             type="text"
             onChange={(e) => setImage(e.target.value)}
             value={image}
+            className={emptyFields.includes('image') ? 'error' : ''}
+            
           />
         </div>
 
@@ -104,6 +111,7 @@ const Create = () => {
             type="text"
             onChange={(e) => setKeyFindings(e.target.value)}
             value={keyFindings}
+            className={emptyFields.includes('keyFindings') ? 'error' : ''}
           />
         </div>
 
@@ -113,6 +121,7 @@ const Create = () => {
             type="text"
             onChange={(e) => setBrixiaScore(e.target.value)}
             value={brixiaScore}
+            className={emptyFields.includes('brixiaScore') ? 'error' : ''}
           />
         </div>
 
@@ -122,6 +131,7 @@ const Create = () => {
             type="number"
             onChange={(e) => setAge(e.target.value)}
             value={age}
+            className={emptyFields.includes('age') ? 'error' : ''}
           />
         </div>
 
@@ -131,24 +141,27 @@ const Create = () => {
             type="text"
             onChange={(e) => setSex(e.target.value)}
             value={sex}
+            className={emptyFields.includes('sex') ? 'error' : ''}
           />
         </div>
 
         <div className="form-group">
           <label>Bmi</label>
           <input
-            type="text"
+            type="number"
             onChange={(e) => setBmi(e.target.value)}
             value={bmi}
+            className={emptyFields.includes('bmi') ? 'error' : ''}
           />
         </div>
 
         <div className="form-group">
           <label>Zip Code</label>
           <input
-            type="text"
+            type="number"
             onChange={(e) => setZipCode(e.target.value)}
             value={zipCode}
+            className={emptyFields.includes('zipCode') ? 'error' : ''}
           />
         </div>
 

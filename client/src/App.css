@@ -94,5 +94,14 @@
   margin-top: 20px;
 }
 
+.loading,
+.no-matching-exams {
+  font-size: 1.2rem; /* Adjust font size as needed */
+  margin: 20px 0;
+  text-align: center;/* Add some margin for spacing */
+}
 
+.deleteButton {
+  cursor: pointer;
+}
 

@@ -8,11 +8,11 @@ const Nav = ({ input, setInput }) => {
 
   return (
     <div className="navbar">
-      <div className="logo">
+      <Link to="/" className="logo">
         <img src={image} alt="Med Report Logo" className="logo" />
         <span className="logo-text"> MedReport</span>
-      </div>
-      {pathname !== "/create-exam" && (
+      </Link>
+      {(pathname === '/admin' || pathname === '/') && (
         <div>
           <SearchBar input={input} setInput={setInput} />
         </div>

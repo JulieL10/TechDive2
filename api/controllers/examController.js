@@ -29,6 +29,40 @@ const createExam = async (req, res) => {
     const {patientID, examID, image, keyFindings, brixiaScore, age, sex, bmi, zipCode
     } = req.body
 
+    let emptyFields = []
+
+    if(!patientID) {
+        emptyFields.push('patientID')
+    }
+    if(!examID) {
+        emptyFields.push('examID')
+    }
+    if(!image) {
+        emptyFields.push('image')
+    }
+    if(!keyFindings) {
+        emptyFields.push('keyFindings')
+    }
+    if(!brixiaScore) {
+        emptyFields.push('brixiaScore')
+    }
+    if(!age) {
+        emptyFields.push('age')
+    }
+    if(!sex) {
+        emptyFields.push('sex')
+    }
+    if(!bmi) {
+        emptyFields.push('bmi')
+    }
+    if(!zipCode) {
+        emptyFields.push('zipCode')
+    }
+    
+    if(emptyFields.length > 0){
+        return res.status(400).json({error: 'Please fill in all the fields', emptyFields})
+    }
+
     //add doc to db
     try {
         const exam = await Exam.create({patientID, examID, image, keyFindings, brixiaScore, age, sex, bmi, zipCode
