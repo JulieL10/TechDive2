@@ -1,0 +1,12 @@
+{
+  "name": "techdive2",
+  "version": "1.0.0",
+  "description": "This skeleton contains two different applications -- a front end, or \"client,\" created with \"Create React App,\" and a back end, or \"API,\" created with Express.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
