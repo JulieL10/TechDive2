@@ -50,6 +50,7 @@ const UpdateExam = () => {
   // Handle update exam
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('hello i work')
     // Implement update logic here
     const updatedExam = {
       patientID,
@@ -63,7 +64,7 @@ const UpdateExam = () => {
       zipCode,
     };
     try {
-      const response = await fetch(`https://medreport-api.onrender.com/api/exams/${id}`, {
+      const response = await fetch(`https://medreport-api.onrender.com/api/exams/:id`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
