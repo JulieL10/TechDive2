@@ -4,13 +4,12 @@ const express = require('express')
 const mongoose = require('mongoose')
 const examRoutes = require('./routes/exams')
 const cors = require('cors');
-const corsOptions = {
-    origin: 'https://medreport.onrender.com',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
+
 // express app
 const app = express()
-app.use(cors(corsOptions));
+app.use(cors({
+    origin: ["http://localhost:3000", "https://medreport.onrender.com"]
+}));
 
 // middleware
 app.use(express.json())
