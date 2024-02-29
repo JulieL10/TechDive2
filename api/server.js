@@ -8,7 +8,7 @@ const cors = require('cors');
 // express app
 const app = express()
 app.use(cors({
-    origin: ["http://localhost:3000/", "https://medreport.onrender.com/"]
+    origin: ["http://localhost:3000", "https://medreport.onrender.com"]
 }));
 
 // middleware
