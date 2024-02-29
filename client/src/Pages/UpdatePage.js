@@ -77,7 +77,7 @@ const UpdateExam = () => {
       // Dispatch action to update exams context
       dispatch({ type: 'UPDATE_EXAM', payload: data });
       // Navigate to admin page
-      navigate('/admin');
+      navigate("/admin");
     } catch (error) {
       console.error('Error updating exam:', error);
     }
