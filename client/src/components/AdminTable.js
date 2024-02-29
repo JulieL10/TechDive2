@@ -4,6 +4,8 @@ import { useExamsContext } from '../hooks/useExamsContext';
 import Table from 'react-bootstrap/Table';
 import editImage from '../images/edit.png';
 import deleteImage from '../images/delete.png'
+
+
 import '../App.css';
 
 const AdminTable = ({ input }) => {
@@ -15,7 +17,7 @@ const AdminTable = ({ input }) => {
     console.log('AdminTable: Fetching exams...');
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/exams/');
+        const response = await fetch('https://medreport-api.onrender.com/api/exams/');
         if (!response.ok) {
           throw new Error('Failed to fetch exams');
         }
@@ -33,7 +35,7 @@ const AdminTable = ({ input }) => {
 
   const handleDelete = async (examID, e) => {
     e.stopPropagation();
-    const response = await fetch(`http://localhost:4000/api/exams/${examID}`, {
+    const response = await fetch(`https://medreport-api.onrender.com/api/exams/${examID}`, {
       method: 'DELETE'
     });
     const json = await response.json();

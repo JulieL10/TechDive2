@@ -35,7 +35,7 @@ const Create = () => {
       zipCode,
     };
 
-    const response = await fetch("http://localhost:4000/api/exams/", {
+    const response = await fetch("https://medreport-api.onrender.com/api/exams/", {
       method: "POST",
       body: JSON.stringify(exam),
       headers: {

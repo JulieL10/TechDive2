@@ -23,7 +23,7 @@ const UpdateExam = () => {
   useEffect(() => {
     const fetchExamDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/exams/${id}`);
+        const response = await fetch(`https://medreport-api.onrender.com/api/exams/${id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch exam details');
         }
