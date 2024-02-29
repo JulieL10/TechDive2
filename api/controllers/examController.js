@@ -91,23 +91,28 @@ const deleteExam = async (req, res) => {
 }
 // update a exam
 const updateExam = async (req, res) => {
-    const { id } = req.params
+    const { id } = req.params;
 
-    if(!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(400).json({error: 'No such exam'})
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ error: 'Invalid exam ID' });
     }
 
-    const exam = await Exam.findOneAndUpdate({_id: id},{
-        ...req.body
-    })
+    const updates = req.body;
 
-    if(!exam) {
-        return res.status(400).json({error: 'No such exam'})
+    try {
+        const updatedExam = await Exam.findByIdAndUpdate(id, updates, { new: true });
+
+        if (!updatedExam) {
+            return res.status(404).json({ error: 'Exam not found' });
+        }
+
+        res.status(200).json(updatedExam);
+    } catch (error) {
+        console.error('Error updating exam:', error);
+        res.status(500).json({ error: 'Internal server error' });
     }
-
-    res.status(200).json(exam)
-
 };
+
 
 
 module.exports = {
