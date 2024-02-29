@@ -63,7 +63,7 @@ const UpdateExam = () => {
       zipCode,
     };
     try {
-      const response = await fetch(`http://localhost:4000/api/exams/${id}`, {
+      const response = await fetch(`https://medreport-api.onrender.com/api/exams/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
