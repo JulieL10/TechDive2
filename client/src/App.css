@@ -74,6 +74,10 @@
   text-align: left;
 }
 
+td {
+  cursor: pointer;
+}
+
 .pop-out-table th {
   background-color: #f2f2f2;
 }

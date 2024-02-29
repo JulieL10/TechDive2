@@ -8,7 +8,7 @@ import { MDBInput, MDBCol } from 'mdbreact';
 
     return (
     <MDBCol md="6">
-            <MDBInput hint="Search" type="text" containerClass="mt-0" value={input} onChange={(e) => handleChange(e.target.value)}/>
+            <MDBInput hint="Search Patient ID" type="text" containerClass="mt-0" value={input} onChange={(e) => handleChange(e.target.value)}/>
             </MDBCol>
     )
 }
