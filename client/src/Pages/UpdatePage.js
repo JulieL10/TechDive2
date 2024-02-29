@@ -65,7 +65,7 @@ const UpdateExam = () => {
     };
     try {
       const response = await fetch(`https://medreport-api.onrender.com/api/exams/${id}`, {
-        method: 'PUT',
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
