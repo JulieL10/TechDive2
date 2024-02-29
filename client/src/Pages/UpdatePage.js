@@ -83,7 +83,7 @@ const UpdateExam = () => {
       console.error('Error updating exam:', error);
     }
   };
-
+  console.log()
   if (!exam) {
     return <div>Loading...</div>;
   }
